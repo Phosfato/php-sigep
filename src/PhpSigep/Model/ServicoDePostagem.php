@@ -6,14 +6,19 @@ namespace PhpSigep\Model;
  * @author : Stavarengo
  * @modify Jonathan Célio da Silva <jonathan.clio@hotmail.com>
  */
-class ServicoDePostagem extends AbstractModel
-{
+class ServicoDePostagem extends AbstractModel {
+    
+    /*
+     * PHOSFATO
+     */
+    const SERVICE_PAC_MINI = '04227';
+    
     const SERVICE_PAC_41068 = '41068';
     const SERVICE_PAC_04510 = '04510';
     const SERVICE_PAC_GRANDES_FORMATOS = '41300';
     const SERVICE_PAC_CONTRATO_GRANDES_FORMATOS = '04693';
     const SERVICE_PAC_CONTRATO_UO = '04812';
-
+    
     const SERVICE_SEDEX_41556 = '41556';
     const SERVICE_SEDEX_12 = '40169';
     const SERVICE_SEDEX_10 = '40215';
@@ -35,28 +40,33 @@ class ServicoDePostagem extends AbstractModel
     const SERVICE_PAC_REVERSO_CONTRATO_AGENCIA = '04677';
     const SERVICE_CARTA_COM_A_FATURAR_SELO_E_SE = '12556';
     const SERVICE_CARTA_COMERCIAL_REGISTRADA_CTR_EP_MAQ_FRAN = '10707';
-
+    
     // CODIGOS REFERENTES A LIMINAR ABCOMM
     const SERVICE_SEDEX_CONTRATO_GRANDES_FORMATOS_LM = '04146';
     const SERVICE_SEDEX_CONTRATO_AGENCIA_LM = '04154';
     const SERVICE_SEDEX_REVERSO_LM = '04243';
     const SERVICE_SEDEX_CONTRATO_UO_LM = '04278';
-
+    
     const SERVICE_PAC_CONTRATO_GRANDES_FORMATOS_LM = '04883';
     const SERVICE_PAC_CONTRATO_AGENCIA_LM = '04367';
     const SERVICE_PAC_REVERSO_LM = '04375';
     const SERVICE_PAC_CONTRATO_UO_LM = '04332';
-
+    
     const SERVICE_SEDEX_CONTRATO_AGENCIA_PAGAMENTO_NA_ENTREGA_LM = '04151';
     const SERVICE_PAC_CONTRATO_AGENCIA_PAGAMENTO_NA_ENTREGA_LM = '04308';
-
+    
     const SERVICE_SEDEX_CONTRATO_AGENCIA_TA = '04553';
     const SERVICE_PAC_CONTRATO_AGENCIA_TA = '04596';
-
-//    const SERVICE_CARTA_REGISTRADA           = '10138';
-
+    
+    //    const SERVICE_CARTA_REGISTRADA           = '10138';
+    
     protected static $services
         = array(
+            /*
+             * PHOSFATO
+             */
+            self::SERVICE_PAC_MINI                                   => array('Pac Mini', 159982),
+            
             self::SERVICE_PAC_41068                                  => array('Pac 41068', 109819),
             self::SERVICE_PAC_04510                                  => array('Pac 04510', 124887),
             self::SERVICE_PAC_GRANDES_FORMATOS                       => array('Pac Grandes Formatos', 120366),
@@ -102,7 +112,7 @@ class ServicoDePostagem extends AbstractModel
                 'SEDEX Contrato UO (Liminar ABCOMM)',
                 null
             ),
-
+            
             self::SERVICE_PAC_CONTRATO_GRANDES_FORMATOS_LM => array(
                 'PAC Contrato Grandes Formatos (Liminar ABCOMM)',
                 null
@@ -110,7 +120,7 @@ class ServicoDePostagem extends AbstractModel
             self::SERVICE_PAC_CONTRATO_AGENCIA_LM          => array('PAC Contrato Agência (Liminar ABCOMM)', 160123),
             self::SERVICE_PAC_REVERSO_LM                   => array('PAC Reverso (Liminar ABCOMM)', null),
             self::SERVICE_PAC_CONTRATO_UO_LM               => array('PAC Contrato UO (Liminar ABCOMM)', null),
-
+            
             self::SERVICE_SEDEX_CONTRATO_AGENCIA_PAGAMENTO_NA_ENTREGA_LM => array(
                 'SEDEX Contrato Agencia Pagamento na Entrega (Liminar ABCOMM)',
                 null
@@ -119,11 +129,11 @@ class ServicoDePostagem extends AbstractModel
                 'PAC Contrato Agencia Pagamento na Entrega (Liminar ABCOMM)',
                 null
             ),
-
+            
             self::SERVICE_SEDEX_CONTRATO_AGENCIA_TA => array('SEDEX Contrato Agencia TA', 161274),
             self::SERVICE_PAC_CONTRATO_AGENCIA_TA   => array('PAC Contrato Agencia TA', 161277),
         );
-
+    
     /**
      * @var string
      */
@@ -136,7 +146,7 @@ class ServicoDePostagem extends AbstractModel
      * @var string
      */
     protected $nome;
-
+    
     /**
      * @param int $serviceCode
      *        One of the constants {@link ServicoDePostagem}::SERVICE_*
@@ -146,12 +156,12 @@ class ServicoDePostagem extends AbstractModel
     public function __construct($serviceCode)
     {
         $normalizedServiceCode = sprintf("%'05s", $serviceCode);
-
-        if (!isset(self::$services[$normalizedServiceCode])) {
+        
+        if ( ! isset(self::$services[ $normalizedServiceCode ])) {
             throw new Exception('There is no service with the code "' . $serviceCode . '".');
         }
-
-        $service = self::$services[$normalizedServiceCode];
+        
+        $service = self::$services[ $normalizedServiceCode ];
         parent::__construct(
             array(
                 'codigo'    => $normalizedServiceCode,
@@ -160,7 +170,7 @@ class ServicoDePostagem extends AbstractModel
             )
         );
     }
-
+    
     /**
      * @return ServicoDePostagem[]
      */
@@ -170,10 +180,10 @@ class ServicoDePostagem extends AbstractModel
         foreach (self::$services as $serviceCode => $serviceDetails) {
             $r[] = new self($serviceCode);
         }
-
+        
         return $r;
     }
-
+    
     /**
      * @param int $serviceCode
      *        One of the constants {@link ServicoDePostagem}::SERVICE_*
@@ -184,7 +194,7 @@ class ServicoDePostagem extends AbstractModel
     {
         return $this->getCodigo() == $serviceCode;
     }
-
+    
     /**
      * @return string
      */
@@ -192,7 +202,7 @@ class ServicoDePostagem extends AbstractModel
     {
         return $this->codigo;
     }
-
+    
     /**
      * @param int $codigo
      */
@@ -200,7 +210,7 @@ class ServicoDePostagem extends AbstractModel
     {
         $this->codigo = $codigo;
     }
-
+    
     /**
      * @return int
      */
@@ -208,7 +218,7 @@ class ServicoDePostagem extends AbstractModel
     {
         return $this->idServico;
     }
-
+    
     /**
      * @param int $idServico
      */
@@ -216,7 +226,7 @@ class ServicoDePostagem extends AbstractModel
     {
         $this->idServico = $idServico;
     }
-
+    
     /**
      * @return string
      */
@@ -224,7 +234,7 @@ class ServicoDePostagem extends AbstractModel
     {
         return $this->nome;
     }
-
+    
     /**
      * @param string $nome
      */
@@ -232,5 +242,5 @@ class ServicoDePostagem extends AbstractModel
     {
         $this->nome = $nome;
     }
-
+    
 }
