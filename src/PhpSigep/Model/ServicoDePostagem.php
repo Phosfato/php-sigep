@@ -13,8 +13,6 @@ class ServicoDePostagem extends AbstractModel {
      */
     const SERVICE_PAC_MINI = '04227';
     const SERVICE_PAC_MINI_INDUSTRIAL = '04391';
-    const SERVICE_SEDEX_INDUSTRIAL = '04316';
-    const SERVICE_PAC_INDUSTRIAL = '04812';
     
     const SERVICE_PAC_41068 = '41068';
     const SERVICE_PAC_04510 = '04510';
@@ -70,8 +68,6 @@ class ServicoDePostagem extends AbstractModel {
              */
             self::SERVICE_PAC_MINI            => array('Pac Mini', 159982),
             self::SERVICE_PAC_MINI_INDUSTRIAL => array('Pac Mini Ind', 160316),
-            self::SERVICE_SEDEX_INDUSTRIAL    => array('Sedex Ind', 124900),
-            self::SERVICE_PAC_INDUSTRIAL      => array('Pac Ind', 124899),
             
             self::SERVICE_PAC_41068                                  => array('Pac 41068', 109819),
             self::SERVICE_PAC_04510                                  => array('Pac 04510', 124887),
