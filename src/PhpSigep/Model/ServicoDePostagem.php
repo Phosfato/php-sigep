@@ -13,16 +13,19 @@ class ServicoDePostagem extends AbstractModel {
      */
     const SERVICE_PAC_MINI = '04227';
     const SERVICE_PAC_MINI_INDUSTRIAL = '04391';
+    const SERVICE_SEDEX_CONTRATO_AGENCIA = '03220';
+    const SERVICE_SEDEX_CONTRATO_UO = '03280';
+    const SERVICE_PAC_CONTRATO_AGENCIA = '03298';
+    const SERVICE_PAC_CONTRATO_UO = '03336';
+    const SERVICE_SEDEX_10 = '03158';
+    const SERVICE_SEDEX_12 = '03140';
     
     const SERVICE_PAC_41068 = '41068';
     const SERVICE_PAC_04510 = '04510';
     const SERVICE_PAC_GRANDES_FORMATOS = '41300';
     const SERVICE_PAC_CONTRATO_GRANDES_FORMATOS = '04693';
-    const SERVICE_PAC_CONTRATO_UO = '04812';
     
     const SERVICE_SEDEX_41556 = '41556';
-    const SERVICE_SEDEX_12 = '40169';
-    const SERVICE_SEDEX_10 = '40215';
     const SERVICE_SEDEX_10_PACOTE = '40886';
     const SERVICE_SEDEX_HOJE_40290 = '40290';
     const SERVICE_SEDEX_HOJE_40878 = '40878';
@@ -31,12 +34,9 @@ class ServicoDePostagem extends AbstractModel {
     const SERVICE_SEDEX_AGRUPADO = '41009';
     const SERVICE_SEDEX_REVERSO = '40380';
     const SERVICE_SEDEX_PAGAMENTO_NA_ENTREGA = '04189';
-    const SERVICE_SEDEX_CONTRATO_UO = '04316';
     const SERVICE_PAC_PAGAMENTO_NA_ENTREGA = '04685';
     const SERVICE_CARTA_COMERCIAL_A_FATURAR = '10065';
     const SERVICE_CARTA_REGISTRADA = '10014';
-    const SERVICE_SEDEX_CONTRATO_AGENCIA = '04162';
-    const SERVICE_PAC_CONTRATO_AGENCIA = '04669';
     const SERVICE_SEDEX_REVERSO_CONTRATO_AGENCIA = '04170';
     const SERVICE_PAC_REVERSO_CONTRATO_AGENCIA = '04677';
     const SERVICE_CARTA_COM_A_FATURAR_SELO_E_SE = '12556';
@@ -66,17 +66,21 @@ class ServicoDePostagem extends AbstractModel {
             /*
              * PHOSFATO
              */
-            self::SERVICE_PAC_MINI            => array('Pac Mini', 159982),
-            self::SERVICE_PAC_MINI_INDUSTRIAL => array('Pac Mini Ind', 160316),
-            
+            self::SERVICE_PAC_MINI                                   => array('Pac Mini', 159982),
+            self::SERVICE_PAC_MINI_INDUSTRIAL                        => array('Pac Mini Ind', 160316),
+            self::SERVICE_SEDEX_CONTRATO_AGENCIA                     => array('SEDEX Contrato Agência', 162022),
+            self::SERVICE_SEDEX_CONTRATO_UO                          => array('Sedex Contrato - UO', 162025),
+            self::SERVICE_PAC_CONTRATO_AGENCIA                       => array('PAC Contrato Agência', 162026),
+            self::SERVICE_PAC_CONTRATO_UO                            => array('Pac Contrato - UO', 162030),
+            self::SERVICE_SEDEX_10                                   => array('Sedex 10', 162016),
+            self::SERVICE_SEDEX_12                                   => array('Sedex 12', 162015),
+
+
             self::SERVICE_PAC_41068                                  => array('Pac 41068', 109819),
             self::SERVICE_PAC_04510                                  => array('Pac 04510', 124887),
             self::SERVICE_PAC_GRANDES_FORMATOS                       => array('Pac Grandes Formatos', 120366),
             self::SERVICE_PAC_CONTRATO_GRANDES_FORMATOS              => array('Pac Contrato Grandes Formatos', 125248),
-            self::SERVICE_PAC_CONTRATO_UO                            => array('Pac Contrato - UO', 124899),
             self::SERVICE_SEDEX_41556                                => array('Sedex 41556', 121877),
-            self::SERVICE_SEDEX_12                                   => array('Sedex 12', 115218),
-            self::SERVICE_SEDEX_10                                   => array('Sedex 10', 104707),
             self::SERVICE_SEDEX_10_PACOTE                            => array('Sedex 10 Pacote', null),
             self::SERVICE_SEDEX_HOJE_40290                           => array('Sedex Hoje 40290', 108934),
             self::SERVICE_SEDEX_HOJE_40878                           => array('Sedex Hoje 40878', null),
@@ -85,7 +89,6 @@ class ServicoDePostagem extends AbstractModel {
             self::SERVICE_SEDEX_AGRUPADO                             => array('Sedex Agrupado', 119461),
             self::SERVICE_SEDEX_REVERSO                              => array('Sedex Reverso', 109806),
             self::SERVICE_SEDEX_PAGAMENTO_NA_ENTREGA                 => array('Sedex Pagamento na Entrega', 114976),
-            self::SERVICE_SEDEX_CONTRATO_UO                          => array('Sedex Contrato - UO', 124900),
             self::SERVICE_PAC_PAGAMENTO_NA_ENTREGA                   => array('PAC Pagamento na Entrega', 114976),
             self::SERVICE_CARTA_COMERCIAL_A_FATURAR                  => array('Carta Comercial a Faturar', 109480),
             self::SERVICE_CARTA_REGISTRADA                           => array('Carta Registrada', 116985),
@@ -97,8 +100,6 @@ class ServicoDePostagem extends AbstractModel {
                 'Carta Comercial Registrada CTR EP MÁQ FRAN',
                 120072
             ),
-            self::SERVICE_SEDEX_CONTRATO_AGENCIA                     => array('SEDEX Contrato Agência', 124849),
-            self::SERVICE_PAC_CONTRATO_AGENCIA                       => array('PAC Contrato Agência', 124884),
             self::SERVICE_SEDEX_REVERSO_CONTRATO_AGENCIA             => array('SEDEX Reverso Contrato Agência', 124849),
             self::SERVICE_PAC_REVERSO_CONTRATO_AGENCIA               => array('PAC Reverso Contrato Agência', 124884),
             self::SERVICE_SEDEX_CONTRATO_GRANDES_FORMATOS_LM         => array(
